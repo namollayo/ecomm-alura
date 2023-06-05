@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  ecomm:
+    image: ecomm:1.0
+    build: .
+    container_name: ecomm
+    networks:
+      - bridge-ecomm
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo-ecomm
+
+  mongo-ecomm:
+    image: mongo
+    container_name: mongo-ecomm
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: secret
+    restart: always
+    networks:
+      - bridge-ecomm
+    volumes:
+      - db-mongo-ecomm:/data/db
+      - type: bind
+        source: ./mongo
+        target: /mongo-scripts
+    ports:
+      - 27017:27017
+
+networks:
+  bridge-ecomm:
+    driver: bridge
+
+volumes:
+  db-mongo-ecomm:
+  
