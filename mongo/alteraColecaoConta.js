@@ -78,7 +78,6 @@ const result = db.runCommand({
                         numero: {
                             bsonType: "string",
                             description: "Must be a string of number or s/n and is required (min 1 caracters)",
-                            pattern: '^d{1}|[S/N]'
                         },
                         complemento: {
                             bsonType: "string",
