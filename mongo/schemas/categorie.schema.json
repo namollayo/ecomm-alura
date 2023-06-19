@@ -1,0 +1,24 @@
+{
+    "$jsonSchema": {
+    "title": "categorie's schema",
+    "bsonType": "object",
+    "required": ["_id","nome", "status"],
+    "additionalProperties": false,
+    "properties": {
+        "_id": {
+            "description": "An unique id for a categorie",
+            "bsonType": "objectId"   
+         },
+        "nome": {
+            "bsonType": "string",
+            "minLength": 3,
+            "description": "Must be a string (min 3 caracteres), is required"
+        },
+        "status": {
+            "bsonType": "string",
+            "enum": ["ATIVA", "INATIVA"],
+            "description": "Must be ATIVA or INATIVA, is required"
+        }
+    }
+    }
+}

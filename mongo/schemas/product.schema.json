@@ -1,0 +1,58 @@
+{
+    "$jsonSchema": {
+        "title": "product's schema",
+        "bsonType": "object",
+        "required": [
+            "_id",
+            "nome",
+            "descricao",
+            "slug",
+            "preco",
+            "estoque",
+            "categoria"
+        ],
+        "additionalProperties": false,
+        "properties": {
+            "_id": {
+                "bsonType": "objectId",
+                "description": "An unique id for a product"
+            },
+            "nome": {
+                "bsonType": "string",
+                "description": "Must be a string (min 5 caracteres), is required",
+                "minLength": 5
+            },
+            "descricao": {
+                "bsonType": "string",
+                "description": "Must be a string (min 10 caracteres), is required",
+                "minLength": 10
+            },
+            "slug": {
+                "bsonType": "string",
+                "description": "Must be a string (min 5 caracteres), is required",
+                "minLength": 5
+            },
+            "preco": {
+                "bsonType": "decimal",
+                "minimum": 0.00,
+                "description": "Must be a positive number or 0, is required"
+            },
+            "estoque": {
+                "bsonType": "int",
+                "minimum": 0,
+                "description": "Must be a positive number or 0, is required"
+            },
+            "categoria": {
+                "enum": [
+                    "AUTOMOTIVA",
+                    "CELULARES",
+                    "INFORMÁTICA",
+                    "LIVROS",
+                    "MÓVEIS"
+                ],
+                "bsonType": "string",
+                "description": "Must one of the option for categorie, is required"
+            }
+        }
+    }
+}
