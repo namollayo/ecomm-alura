@@ -1,7 +1,7 @@
 use("ecomm");
 
 
-const result = db.accounts.insertMany([
+db.accounts.insertMany([
   {
     username: "kagura",
     email: "kagura@example.com",
@@ -54,5 +54,3 @@ const result = db.accounts.insertMany([
     },
   },
 ]);
-
-console.log(result);
